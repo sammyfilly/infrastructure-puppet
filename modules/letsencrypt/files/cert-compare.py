@@ -21,10 +21,7 @@ def main() -> int:
     )
     real_dns_names = set(san_ext.value.get_values_for_type(x509.DNSName))
 
-    if real_dns_names != set(args.domain):
-        return 1
-
-    return 0
+    return 1 if real_dns_names != set(args.domain) else 0
 
 
 if __name__ == "__main__":
